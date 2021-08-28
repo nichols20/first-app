@@ -1,4 +1,6 @@
 
-const logger = require("./logger") 
+const path = require("path") 
 
-console.log(logger)
+const pathObj = path.parse(__filename)
+
+console.log(pathObj)
