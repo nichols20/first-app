@@ -1,8 +1,12 @@
+//Using thew EventEmitter class we are able to raise and listen to events
+const EventEmitter = require("events");
 
-const fs = require('fs')
+const emitter = new EventEmitter();
 
-const files = fs.readdir('$', function(err, files){
-    if (err) console.log("error", err)
-    else console.log("result", files)
-})
-console.log(files)
+// A listener is a function that will be called when that event is raised. *on/addlistener are both the same
+emitter.on("message Logged", function () {
+  console.log("LISTENER CALLED");
+});
+
+//This function is used to raise an event
+emitter.emit("message Logged");
